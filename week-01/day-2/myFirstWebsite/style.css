@@ -1,0 +1,65 @@
+body{
+    background-image: url("assets/background.png");
+    margin:0;
+    
+}
+nav{
+    background-color:rgb(51, 51, 51);
+    max-width:100vw;
+    height:7vh;
+    padding:0 10vw;
+    display:flex;
+    justify-content:space-between;
+}
+.image{
+    animation:logoAnim 5s infinite linear;
+    height:60%;
+    align-self: center;
+}
+.anchors{
+    display:flex;
+
+}
+
+main{
+    margin:0 10vw;
+}
+h1{
+    margin-top:2%;
+}
+h2{
+    color:#ff0099;
+}
+hr{
+    width: 80vw;
+    align-self: center;
+}
+a{
+    color:#ff0099;
+    padding:0 2vw;
+    text-decoration: none;
+    height:100%;
+    display:flex;
+    align-items:center;
+}
+a:hover{
+    transition-property: all;
+    transition-duration:0.75s;
+    color:white;
+    background-color: #ff0099;
+}
+
+@keyframes logoAnim{
+    0%{
+        transform:scale(1.0) rotate(0deg);
+        
+    }
+    50%{
+        transform:scale(1.2) rotate(180deg);
+        
+    }
+    100%{
+        transform:scale(1.0) rotate(359deg);
+        
+    }
+}
