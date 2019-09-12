@@ -1,4 +1,4 @@
-sing System;
+using System;
 
 namespace GreenFox
 {
@@ -27,11 +27,7 @@ namespace GreenFox
             {
                 for (int j = 0; j < q.Length; j++)
                 {
-                    if (input[i + j] == q[j])
-                    {
-                        wrong = false;
-
-                    }
+                    wrong = false;
                     if (input[i + j] != q[j])
                     {
                         wrong = true;
