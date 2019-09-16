@@ -17,49 +17,48 @@ namespace GreenFox
                 Console.WriteLine(arr[i]);
             }
         }
+        public static void assign(ref int[] arr1, ref int[] arr2, ref int index1, ref int index2)
+        {
+            arr1[index1] = arr2[index2];
+            index1++;
+            index2++;
+        }
         public static void mergeSort(ref int[] arr)
         {
             if (arr.Length < 2) { return; }
-            int[] arr1 = new int[arr.Length / 2];
-            int[] arr2 = new int[arr.Length - arr.Length / 2];
-            Array.Copy(arr, arr1, arr.Length / 2);
-            Array.Copy(arr, arr.Length / 2, arr2, 0, arr.Length - arr.Length / 2);
+            int halfLength = arr.Length / 2;
+            int[] arr1 = new int[halfLength];
+            int[] arr2 = new int[arr.Length - halfLength];
+            Array.Copy(arr, arr1, halfLength);
+            Array.Copy(arr, halfLength, arr2, 0, arr.Length - halfLength);
             mergeSort(ref arr1);
             mergeSort(ref arr2);
-            int k = 0; //arr1 index
-            int l = 0; //arr2 index
-            int j = 0; //arr index
-            while ((k != arr1.Length) && (l != arr2.Length))
+            int arr1Index = 0; 
+            int arr2Index = 0; 
+            int arrIndex = 0; 
+            while ((arr1Index != arr1.Length) && (arr2Index != arr2.Length))
             {
-                if (arr1[k] < arr2[l])
+                if (arr1[arr1Index] < arr2[arr2Index])
                 {
-                    arr[j] = arr1[k];
-                    k++;
-                    j++;
+                    assign(ref arr, ref arr1, ref arrIndex, ref arr1Index);
                 }
                 else
                 {
-                    arr[j] = arr2[l];
-                    l++;
-                    j++;
+                    assign(ref arr, ref arr2, ref arrIndex, ref arr2Index);
+                }               
+            }
+            if (arr1Index != arr1.Length)
+            {
+                while (arr1Index != arr1.Length)
+                {
+                    assign(ref arr, ref arr1, ref arrIndex, ref arr1Index);
                 }
             }
-            if (k != arr1.Length)
+            else if (arr2Index != arr2.Length)
             {
-                while (k != arr1.Length)
+                while (arr2Index != arr2.Length)
                 {
-                    arr[j] = arr1[k];
-                    k++;
-                    j++;
-                }
-            }
-            else if (l != arr2.Length)
-            {
-                while (l != arr2.Length)
-                {
-                    arr[j] = arr2[l];
-                    l++;
-                    j++;
+                    assign(ref arr, ref arr2, ref arrIndex, ref arr2Index);
                 }
             }
         }
