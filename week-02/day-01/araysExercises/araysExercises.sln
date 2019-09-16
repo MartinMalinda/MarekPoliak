@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "araysExercises", "araysExercises\araysExercises.csproj", "{A15DA7CB-7B35-485C-A0C6-AEDD499DA19C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A15DA7CB-7B35-485C-A0C6-AEDD499DA19C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A15DA7CB-7B35-485C-A0C6-AEDD499DA19C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A15DA7CB-7B35-485C-A0C6-AEDD499DA19C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A15DA7CB-7B35-485C-A0C6-AEDD499DA19C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB526872-1ED1-46AA-B0BD-081FA3AD4432}
+	EndGlobalSection
+EndGlobal
