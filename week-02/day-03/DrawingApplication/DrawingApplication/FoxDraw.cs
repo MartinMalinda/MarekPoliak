@@ -9,10 +9,11 @@ namespace GreenFox
 {
     public class FoxDraw
     {
-        private Canvas Canvas { get; set; }
+        public Canvas Canvas { get; set; }
         private SolidColorBrush LineColor { get; set; } = new SolidColorBrush(Colors.Black);
         private SolidColorBrush ShapeColor { get; set; } = new SolidColorBrush(Colors.DarkGreen);
 
+        
         public FoxDraw(Canvas canvas)
         {
             Canvas = canvas;
@@ -42,6 +43,8 @@ namespace GreenFox
                 Width = width,
                 Height = height
             };
+            
+            
 
             Canvas.Children.Add(ellipse);
             SetPosition(ellipse, x, y);
@@ -81,10 +84,12 @@ namespace GreenFox
             var rectangle = new Rectangle()
             {
                 Stroke = LineColor,
+                StrokeThickness = 1,
                 Fill = ShapeColor,
                 Width = width,
                 Height = height
             };
+            
 
             Canvas.Children.Add(rectangle);
             SetPosition(rectangle, x, y);
