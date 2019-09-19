@@ -25,35 +25,116 @@ namespace DrawingApplication
                 lines[i]= new Line()
                 {
                     Stroke = new SolidColorBrush(Colors.Black),
-                    StartPoint = new Point(50, 50),
-                    EndPoint = new Point(100, 100),
+                    StartPoint = new Point(position.X-50, position.Y-50),
+                    EndPoint = new Point(position.X, position.Y),
                     StrokeThickness = 1
                 };
                 foxDraw.Canvas.Children.Add(lines[i]);
             }
+            
             tempSize = size / 2;
         }
-        public void rotate(double num,FoxDraw foxDraw)
+        
+        public void rotateX(double num,FoxDraw foxDraw)
         {
             for (int i = 0; i < 4; i++)
             {   
                 double tem1 = num + 1.57 * i;
                 double tem2 = num + 1.57 * (i+1);
-
-                //square.Points[i].Transform(new Matrix(0, 0, 0, 0, position.X + (Math.Sin(tem1)) * tempSize, position.Y + (Math.Cos(tem1)) * tempSize));
-                //square.Points[i]= new Point(position.X + (Math.Sin(tem1)) * tempSize, position.Y + (Math.Cos(tem1)) * tempSize);
                 lines[i].StartPoint = new Point(position.X + (Math.Sin(tem1)) * tempSize, position.Y + (Math.Cos(tem1)) * tempSize);
                 lines[i].EndPoint = new Point(position.X + (Math.Sin(tem2)) * tempSize, position.Y + (Math.Cos(tem2)) * tempSize);
-
             }
-            
-
         }
         public Line[] lines;
         public Point position;
         int size;
         int tempSize;      
     }
+
+    public class stars
+    {
+        public stars(FoxDraw foxDraw)
+        {
+            foxDraw.SetBackgroundColor(Colors.Black);
+            Random random = new Random();
+            for (int i = 0; i < sts.Length; i++)
+            {
+                int ran1 = random.Next(0, 800);
+                int ran2 = random.Next(0, 800);
+                sts[i] = new star(ran1, ran2, foxDraw);
+            }
+        }
+        public void moveStars()
+        {
+            for (int i = 0; i < sts.Length; i++)
+            {
+                
+                if(sts[i].pos.X>800|| sts[i].pos.Y > 800|| sts[i].pos.X < 0|| sts[i].pos.Y < 0)
+                {
+                    Random random = new Random();
+                    int x = random.Next(0, 800);
+                    int y = random.Next(0, 800);
+                    sts[i].pos = new Point(x,y);
+                    sts[i].lin.EndPoint = new Point(x+1,y+1);
+                    sts[i].lin.StartPoint = new Point(x,y);
+                    sts[i].calculateVec();
+                }
+                sts[i].pos = new Point(sts[i].vec[0] * sts[i].velocity*sts[i].distance + sts[i].pos.X, sts[i].vec[1] * sts[i].velocity * sts[i].distance + sts[i].pos.Y);
+                sts[i].lin.EndPoint= new Point(sts[i].vec[0]*sts[i].velocity * sts[i].distance + sts[i].lin.EndPoint.X, sts[i].vec[1] * sts[i].velocity * sts[i].distance + sts[i].lin.EndPoint.Y);
+                sts[i].lin.StartPoint= new Point(sts[i].vec[0] * sts[i].velocity * sts[i].distance + sts[i].lin.StartPoint.X, sts[i].vec[1] * sts[i].velocity * sts[i].distance + sts[i].lin.StartPoint.Y);
+                sts[i].calculateVel();
+            }
+        }
+        star[] sts = new star[100];
+    }
+       
+    public class star
+    {
+        public star(int x, int y,FoxDraw foxDraw)
+        {
+            pos = new Point(x, y);
+
+            lin = new Line()
+            {
+                Stroke = new SolidColorBrush(Colors.White),
+                StartPoint = new Point(x+1 , y+1 ),
+                EndPoint = new Point(x, y),
+                StrokeThickness = 1
+            };
+            calculateVec();
+            calculateVel();
+            Random random = new Random();
+            distance = random.Next(5, 10)/10.0;
+            
+            foxDraw.Canvas.Children.Add(lin);
+            
+            
+
+        }
+        public void calculateVec()
+        {
+            vec[0] = pos.X - 400;
+            vec[1] = pos.Y - 400;
+
+            double temp = vec[0];
+            vec[0] = vec[0] / Math.Sqrt(vec[0] * vec[0] + vec[1] * vec[1]);
+            vec[1] = vec[1] / Math.Sqrt(temp * temp + vec[1] * vec[1]);
+        }
+        public void calculateVel()
+        {
+            double temp1 = pos.X - 400;
+            double temp2 = pos.Y - 400;
+            velocity = Math.Abs(Math.Sqrt(temp1 * temp1 + temp2 * temp2)/400)*2;
+            
+        }
+        public double velocity = 0;
+        public double distance = 0;
+        public Line lin;
+        public Point pos;
+        public double[] vec = new double[2];
+    }
+    
+
 
 
     public class MainWindow : Window
@@ -75,23 +156,24 @@ namespace DrawingApplication
             
 
             foxDraw.SetFillColor(Colors.Transparent);
-            cube drawing = new cube(100, 400, 400, foxDraw);
+            stars st = new stars(foxDraw);
+
+
             timer = new DispatcherTimer();
             timer.Interval = new System.TimeSpan(0, 0, 0, 0, 1);
             double i = 0;
             timer.Tick += delegate
             {
-                OnTick(ref i, ref foxDraw,drawing);
+                OnTick(ref i, ref foxDraw,st);
             };
             timer.Start();
-            
 
 
 
         }
-        public void OnTick(ref double i, ref FoxDraw foxDraw,cube drawing)
+        public void OnTick(ref double i, ref FoxDraw foxDraw,stars st)
         {
-            drawing.rotate(i,foxDraw);
+            st.moveStars();
             i += 0.01;
         }
 
