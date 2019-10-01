@@ -6,28 +6,29 @@ namespace GreenFoxExercise
 {
     class Person
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
+        protected string name;
 
-        public bool IsMale { get; set; }
+        protected int age;
+
+        protected bool isMale;
 
         public Person(string name,int age, bool isMale)
         {
-            Name = name;
-            Age = age;
-            IsMale = isMale;
+            this.name = name;
+            this.age = age;
+            this.isMale = isMale;
             Console.ReadLine();
         }
         public Person()
         {
-            Name = "JaneDoe";
-            Age = 30;
-            IsMale = false;
+            name = "JaneDoe";
+            age = 30;
+            isMale = false;
         }
         
         public void Introduce()
         {
-            Console.WriteLine("Hi...whatever :D"+Name+Age+IsMale);
+            Console.WriteLine("Hi...whatever :D"+name+age+isMale);
         }
         public void GetGoal()
         {

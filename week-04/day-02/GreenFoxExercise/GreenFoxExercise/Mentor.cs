@@ -4,18 +4,18 @@ using System.Text;
 
 namespace GreenFoxExercise
 {
-    class Mentor:Person
+    class Mentor: Person
     {
-        public level Level { get; set; }
+        private level level;
 
         public Mentor(string name, int age, bool isMale,level level) : base(name, age, isMale)
         {
-            Level = level;
+            this.level = level;
         }
         
         public Mentor() : base()
         {
-            Level = level.intermediate;
+            level = level.intermediate;
         }
 
         public void GetGoal()
@@ -25,7 +25,7 @@ namespace GreenFoxExercise
 
         public void Introduce()
         {
-            Console.WriteLine("Hi, I'm "+Name+Age+Level); //whatever
+            Console.WriteLine("Hi, I'm "+name+age+level); //whatever
         }
     }
     enum level
