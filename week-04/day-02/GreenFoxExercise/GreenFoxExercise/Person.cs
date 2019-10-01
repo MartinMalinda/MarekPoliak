@@ -17,7 +17,6 @@ namespace GreenFoxExercise
             this.name = name;
             this.age = age;
             this.isMale = isMale;
-            Console.ReadLine();
         }
         public Person()
         {
