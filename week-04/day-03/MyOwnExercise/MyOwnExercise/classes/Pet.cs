@@ -13,7 +13,7 @@ namespace MyOwnExercise
         public override void Introduce()
         {
             base.Introduce();
-            Console.WriteLine("And im friendly "+AnimalType.ToString());
+            Console.WriteLine("And im friendly "+AnimalType.ToString()+" because im PET; my name is "+Name);
         }
 
         public override void Speak()

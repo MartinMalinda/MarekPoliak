@@ -17,13 +17,22 @@ namespace MyOwnExercise
 
         public Person()
         {
-            int numOfNames = Enum.GetValues(typeof(names)).Length;
-            int ranEnumIndex = Program.Ran.Next(0, numOfNames);
-            Name = ((names)ranEnumIndex).ToString();
-            Age = Program.Ran.Next(0, 100);
             int numOfGenders = Enum.GetValues(typeof(genders)).Length;
-            ranEnumIndex= Program.Ran.Next(0, numOfGenders);
+            int ranEnumIndex = Program.Ran.Next(0, numOfGenders);
             Gender = (genders)ranEnumIndex;
+            if (Gender == genders.female)
+            {
+                int numOfNames = Enum.GetValues(typeof(femaleNames)).Length;
+                ranEnumIndex = Program.Ran.Next(0, numOfNames);
+                Name = ((femaleNames)ranEnumIndex).ToString();
+            }
+            else
+            {
+                int numOfNames = Enum.GetValues(typeof(maleNames)).Length;
+                ranEnumIndex = Program.Ran.Next(0, numOfNames);
+                Name = ((maleNames)ranEnumIndex).ToString();
+            }
+            Age = Program.Ran.Next(0, 100);
         }
 
         public Person(string name, int age, genders gender)
@@ -46,6 +55,11 @@ namespace MyOwnExercise
         public void Eat()
         {
             Console.WriteLine("I Ate");
+        }
+
+        public void Introduce()
+        {
+            Console.WriteLine("hi im "+Name+" and im "+Gender.ToString());
         }
 
         public void Move()

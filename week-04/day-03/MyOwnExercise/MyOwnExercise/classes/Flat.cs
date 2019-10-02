@@ -31,11 +31,13 @@ namespace MyOwnExercise
             Console.WriteLine("flat has "+Area+" squaredmeters");
             foreach (var item in People)
             {
-                Console.WriteLine("Person "+item.Name+" lives here");
+                Console.WriteLine("Person "+item.Name+" lives here:");
+                item.Introduce();
             }
             foreach (var item in Pets)
             {
-                Console.WriteLine("Pet"+item.Name + " lives here");
+                Console.WriteLine("Pet "+item.Name + " lives here:");
+                item.Introduce();
             }
         }
     }

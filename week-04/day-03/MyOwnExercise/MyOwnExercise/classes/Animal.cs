@@ -26,13 +26,22 @@ namespace MyOwnExercise
 
         protected Animal()
         {
-            int numOfNames = Enum.GetValues(typeof(names)).Length;
-            int ranEnumIndex = Program.Ran.Next(0, numOfNames);
-            Name = ((names)ranEnumIndex).ToString();
-            Age = Program.Ran.Next(0, 20);
             int numOfGenders = Enum.GetValues(typeof(genders)).Length;
-            ranEnumIndex = Program.Ran.Next(0, numOfGenders);
+            int ranEnumIndex = Program.Ran.Next(0, numOfGenders);
             Gender = (genders)ranEnumIndex;
+            if (Gender == genders.female)
+            {
+                int numOfNames = Enum.GetValues(typeof(femaleNames)).Length;
+                ranEnumIndex = Program.Ran.Next(0, numOfNames);
+                Name = ((femaleNames)ranEnumIndex).ToString();
+            }
+            else
+            {
+                int numOfNames = Enum.GetValues(typeof(maleNames)).Length;
+                ranEnumIndex = Program.Ran.Next(0, numOfNames);
+                Name = ((maleNames)ranEnumIndex).ToString();
+            }
+            Age = Program.Ran.Next(0, 20);
             int numOfAnimals = Enum.GetValues(typeof(animals)).Length;
             ranEnumIndex = Program.Ran.Next(0, numOfAnimals);
             AnimalType = (animals)ranEnumIndex;

@@ -11,5 +11,7 @@
         void Eat();
 
         void Drink();
+
+        void Introduce();
     }
 }
