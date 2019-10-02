@@ -7,9 +7,9 @@ namespace ICloneable
         static void Main(string[] args)
         {
             Student alex = new Student();
-           alex.Introduce();
-            Student marek = alex.Clone();
-            marek.Introduce();
+            alex.Introduce();
+            Student alexovKlon = alex.Clone();
+            alexovKlon.Introduce();
         }
     }
     
