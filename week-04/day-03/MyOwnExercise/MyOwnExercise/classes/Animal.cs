@@ -4,13 +4,17 @@ using System.Text;
 
 namespace MyOwnExercise
 {
-    abstract class Animal : ICreature
+    abstract class Animal : ICreature, IMoveable
     {
         public string Name { get; private set; }
         public int Age { get; private set; }
+        public int Weight { get; set; }
+        public int PosX { get; set; }
+        public int PosY { get; set; }
         public genders Gender { get; private set; }
 
         public animals AnimalType { get; private set; }
+
 
         protected Animal(string name, int age, genders gender, animals animalType)
         {
@@ -55,5 +59,11 @@ namespace MyOwnExercise
         }
 
         public abstract void Speak();
+
+
+        public void Move()
+        {
+            Console.WriteLine("I moved");
+        }
     }
 }

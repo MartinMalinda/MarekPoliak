@@ -1,6 +1,6 @@
 ﻿namespace MyOwnExercise
 {
-    public interface ICreature
+    public interface ICreature : IThing, IWeighable, IMoveable
     {
         string Name { get; }
         int Age { get; }

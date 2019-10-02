@@ -4,10 +4,15 @@ using System.Text;
 
 namespace MyOwnExercise
 {
-    class Person:ICreature
+    class Person : ICreature, IMoveable
     {
+        public int PosX { get; set; }
+        public int PosY { get; set; }
         public string Name { get; private set; } 
         public int Age { get; private set; }
+        public int Weight { get; set; }
+        public int posX { get; set; }
+        public int posY { get; set; }
         public genders Gender { get; private set; }
 
         public Person()
@@ -26,6 +31,26 @@ namespace MyOwnExercise
             Name = name;
             Age = age;
             Gender = gender;
+        }
+
+        public void Poop()
+        {
+            Console.WriteLine("I Pooped");
+        }
+
+        public void Drink()
+        {
+            Console.WriteLine("I Drank");
+        }
+
+        public void Eat()
+        {
+            Console.WriteLine("I Ate");
+        }
+
+        public void Move()
+        {
+            Console.WriteLine("I moved");
         }
     }
 }

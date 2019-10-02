@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyOwnExercise
 {
-    class Pet : Animal, ICreature
+    class Pet : Animal, ICreature, IMoveable
     {
         public Pet(string name, int age, genders gender, animals animalType) : base(name, age, gender, animalType) { }
 
