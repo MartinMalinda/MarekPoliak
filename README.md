@@ -12,3 +12,5 @@
 [website repo](https://github.com/MarekPoliak/MarekPoliak.github.io "website")
 
 [todo-app](https://github.com/MarekPoliak/todo-app.git "todo-app")
+
+[Wanderer game](https://github.com/MarekPoliak/wanderer-cs.git "Wanderer game")
