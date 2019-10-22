@@ -1,0 +1,18 @@
+﻿button {
+    margin: auto;
+    width: auto;
+    height:auto;
+    margin: auto;
+    padding:20px;
+    display: flex;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size:20;
+}
+
+p{
+    margin:auto;
+    width:auto;
+}
