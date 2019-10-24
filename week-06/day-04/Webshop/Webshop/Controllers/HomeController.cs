@@ -33,6 +33,9 @@ namespace Webshop.Controllers
                     case "nike":
                         model.List = model.List.Where(i => i.Attributes[0].ToLower().Contains("nike") || i.Attributes[1].ToLower().Contains("nike")).ToList();
                         break;
+                    case "all":
+                        model.List = model.List.Select(i => i).ToList();
+                        break;
                 }
             }
             if (model.Search != null)

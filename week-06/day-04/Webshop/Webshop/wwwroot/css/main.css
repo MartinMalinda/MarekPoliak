@@ -112,6 +112,12 @@ form{
     }
 }
 
+.aShower {
+    transform: scale(1.03);
+    transition: 0.5s;
+    color:white;
+    box-shadow: 0 0 20px blueviolet, 0 0 40px blueviolet, 0 0 60px blueviolet;
+}
 
 
 

@@ -9,19 +9,19 @@
 </head>
 <body>
     <nav>
-        <a href="https://localhost:44313/?filter=available">
-            AVAILABLE
+        <a  class="@(Model.Filter=="available"?"aShower":"")" href="https://localhost:44313/?filter=available">
+        AVAILABLE
         </a>
-        <a href="https://localhost:44313/?filter=cheap">
+        <a  class="@(Model.Filter=="cheap"?"aShower":"")" href="https://localhost:44313/?filter=cheap">
             CHEAP
         </a>
-        <a href="https://localhost:44313/?filter=nike">
+        <a  class="@(Model.Filter=="nike"?"aShower":"")" href="https://localhost:44313/?filter=nike">
             NIKE
         </a>
-        <a href="https://localhost:44313/?filter=average">
-            AVERAGE
+        <a  class="@(Model.Filter=="all"?"aShower":"")" href="https://localhost:44313/?filter=all">
+            ALL
         </a>
-        <a href="https://localhost:44313/?filter=expensive">
+        <a  class="@(Model.Filter=="expensive"?"aShower":"")" href="https://localhost:44313/?filter=expensive">
             EXPENSIVE
         </a>
     </nav>
