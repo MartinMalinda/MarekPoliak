@@ -1,0 +1,75 @@
+﻿@model Webshop.Models.IndexModel
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Playing</title>
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+</head>
+<body>
+    <nav>
+        <a href="https://localhost:44313/?filter=available">
+            AVAILABLE
+        </a>
+        <a href="https://localhost:44313/?filter=cheap">
+            CHEAP
+        </a>
+        <a href="https://localhost:44313/?filter=nike">
+            NIKE
+        </a>
+        <a href="https://localhost:44313/?filter=average">
+            AVERAGE
+        </a>
+        <a href="https://localhost:44313/?filter=expensive">
+            EXPENSIVE
+        </a>
+    </nav>
+    <form method="get">
+        <input type="hidden" value="@Model.Filter" name="filter" />
+        <input type="text" value="@Model.Search" name="search" />
+        <button type="submit">
+            <img src="~/Resources/search.png" alt="searchIcon" />
+        </button>
+    </form>
+    @{
+        if (Model.Filter != null || Model.Search != null)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Quantity of stock
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.List)
+                    {
+                        <tr>
+
+                            @for (int i = 0; i < item.NumOfAttributes; i++)
+                            {
+                                <td>
+                                    @item.Attributes[i]
+                                </td>
+                            }
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+</body>
+</html>

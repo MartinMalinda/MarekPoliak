@@ -1,0 +1,117 @@
+﻿body {
+    background-color: rgb(24, 24, 24);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    display: block;
+    background-color: blueviolet;
+    color: rgb(197, 197, 197);
+    outline: none;
+    border: none;
+    font-size: 20px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    transition: 0.5s;
+    text-decoration: none;
+    padding: 20px;
+    margin:0 20px;
+}
+
+a:hover {
+    transform: scale(1.03);
+    transition: 0.5s;
+    color: white;
+    box-shadow: 
+        0 0 20px blueviolet,
+        0 0 40px blueviolet,
+        0 0 60px blueviolet;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    height: 70px;
+}
+
+table {
+    color: blueviolet;
+    margin:30px;
+    border-spacing:10px;
+    animation: tableAnim 0.5s forwards;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: blueviolet;
+    color: rgb(197, 197, 197);
+}
+
+td{
+    text-align:center;
+    padding:20px;
+}
+
+img{
+    background-color:transparent;
+    width:80%;
+    height:80%;
+    margin:0;
+    padding:0;
+    border-radius:inherit;
+    opacity:0.5;
+    transition:0.5s;
+}
+
+img:hover{
+    opacity:1;
+    transition:0.5s;
+}
+
+button {
+    transition: 0.5s;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    margin: 10px;
+}
+
+    button:hover {
+        box-shadow: 0 0 20px blueviolet, 0 0 40px blueviolet, 0 0 60px blueviolet;
+        transform: scale(1.03);
+        transition: 0.5s;
+    }
+
+input {
+    background-color: rgb(197, 197, 197);
+    outline:none;
+    border:none;
+    border-radius:10px;
+    padding:10px;
+    margin:10px;
+}
+
+form{
+    display:flex;
+}
+
+@keyframes tableAnim{
+    0%{
+        transform:scaleX(0.5);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+
+
+
