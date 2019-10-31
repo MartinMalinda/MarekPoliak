@@ -1,0 +1,97 @@
+﻿@model  List<BankAccount.Models.AnimalsAccount>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    moral
+                </th>
+                <th>
+                    name
+                </th>
+                <th>
+                    balance
+                </th>
+                <th>
+                    animaltype
+                </th>
+                <th>
+                    indexer
+                </th>
+                <th>
+                    raise balance
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                @if (Model[i].IsKing)
+                {
+                    <tr class="Shiny">
+                        <td>@Model[i].Moral</td>
+                        <td>@Model[i].Name</td>
+                        <td>@String.Format("{0:0.00}", Model[i].Balance) Zebra</td>
+                        <td>@Model[i].AnimalType</td>
+                        <td>@i</td>
+                        <td>
+                            <form action="IncreaseKing" method="post">
+                                <input type="hidden" name="index" value="@i" />
+                                <button type="submit">
+                                    raise
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>@Model[i].Moral</td>
+                        <td>@Model[i].Name</td>
+                        <td>@String.Format("{0:0.00}", Model[i].Balance) Zebra</td>
+                        <td>@Model[i].AnimalType</td>
+                        <td>@i</td>
+                        <td>
+                            <form action="Increase" method="post">
+                                <input type="hidden" name="index" value="@i" />
+                                <button type="submit">
+                                    raise
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+            <tr>
+                <form action="NewAnimal" method="post">
+                    <td>
+                        <input required type="text" name="Moral" />
+                    </td>
+                    <td>
+                        <input required type="text" name="Name" />
+                    </td>
+                    <td>
+                        <input required type="number" name="Balance" />
+                    </td>
+                    <td>
+                        <input required type="text" name="AnimalType" />
+                    </td>
+                    <td>
+                        <input required type="text" name="indexer" />
+                    </td>
+                    <td>
+                        <button type="submit">add</button>
+                    </td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

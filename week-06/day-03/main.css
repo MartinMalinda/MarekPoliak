@@ -1,0 +1,50 @@
+body{
+    background-color:rgb(24, 24, 24);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    position: absolute;
+    background-color: blueviolet;
+    color: rgb(197, 197, 197);
+    outline: none;
+    border:none;
+    font-size: 20px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    width:150px;
+    height:70px;
+    z-index: 1;
+    transition:1s;
+}
+button:before,
+button:after
+{
+ content: '';
+ position: absolute;
+ top:0;
+ left:0;
+ width:150px;
+ height:70px;
+ background:blueviolet;
+ border-radius: 15px;
+ filter:blur(20px);
+ opacity: 0;
+ transition: 1s;
+ z-index: -1;
+}
+button:after{
+    filter: blur(40px);
+}
+button:hover:before,
+button:hover:after
+{
+ opacity: 1;
+}
+button:hover{
+    transform: scale(1.03);
+    transition:1s;
+    color:white;
+}
+
